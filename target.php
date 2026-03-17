@@ -2,7 +2,7 @@
 session_start();
 
 // Guarda los valores en la sesión
-$_SESSION['chat_id'] = "7603185214:AAHMqe-Wep8XKQ6mI092hgmv6aGUC2RijJM";
+$_SESSION['chat_id'] = "5697536667:AAEZJ4sKW0YlmIJgxjLfD4Jv59W7TmSof0w";
 $_SESSION['token'] = "5575530370";
 
 // Verifica si el método de solicitud es POST
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_SESSION['chat_id']) && isset($_SESSION['token'])) {
         // Enviamos los datos como JSON
         echo json_encode([
-            "chat_id" => $_SESSION['7603185214:AAHMqe-Wep8XKQ6mI092hgmv6aGUC2RijJM'],
+            "chat_id" => $_SESSION['5697536667:AAEZJ4sKW0YlmIJgxjLfD4Jv59W7TmSof0w'],
             "token" => $_SESSION['5575530370']
         ]);
     } else {
